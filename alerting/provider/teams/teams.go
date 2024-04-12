@@ -101,11 +101,15 @@ func (provider *AlertProvider) buildRequestBody(endpoint *core.Endpoint, alert *
 	if alertDescription := alert.GetDescription(); len(alertDescription) > 0 {
 		description = ": " + alertDescription
 	}
+	title := "&#x1F6A8; Gatus"
+	if provider.Title != "" {
+		title = provider.Title
+	}
 	body := Body{
 		Type:       "MessageCard",
 		Context:    "http://schema.org/extensions",
 		ThemeColor: color,
-		Title:      "&#x1F6A8; Gatus",
+		Title:      title,
 		Text:       message + description,
 	}
 	if len(formattedConditionResults) > 0 {
