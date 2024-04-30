@@ -1,7 +1,6 @@
 [![Gatus](.github/assets/logo-with-dark-text.png)](https://gatus.io)
 
 ![test](https://github.com/TwiN/gatus/workflows/test/badge.svg?branch=master)
-[![Join Discord server](https://img.shields.io/discord/442432928614449155.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/ka9RySaQ9K)
 [![Go Report Card](https://goreportcard.com/badge/github.com/TwiN/gatus?)](https://goreportcard.com/report/github.com/TwiN/gatus)
 [![codecov](https://codecov.io/gh/TwiN/gatus/branch/master/graph/badge.svg)](https://codecov.io/gh/TwiN/gatus)
 [![Go version](https://img.shields.io/github/go-mod/go-version/TwiN/gatus.svg)](https://github.com/TwiN/gatus)
@@ -267,6 +266,7 @@ You can then configure alerts to be triggered when an endpoint is unhealthy once
 | `endpoints[].alerts`                            | List of all alerts for a given endpoint. <br />See [Alerting](#alerting).                                                                   | `[]`                       |
 | `endpoints[].client`                            | [Client configuration](#client-configuration).                                                                                              | `{}`                       |
 | `endpoints[].ui`                                | UI configuration at the endpoint level.                                                                                                     | `{}`                       |
+| `endpoints[].ui.hide-conditions`                | Whether to hide conditions from the results. Note that this only hides conditions from results evaluated from the moment this was enabled.  | `false`                    |
 | `endpoints[].ui.hide-hostname`                  | Whether to hide the hostname in the result.                                                                                                 | `false`                    |
 | `endpoints[].ui.hide-url`                       | Whether to ensure the URL is not displayed in the results. Useful if the URL contains a token.                                              | `false`                    |
 | `endpoints[].ui.dont-resolve-failed-conditions` | Whether to resolve failed conditions for the UI.                                                                                            | `false`                    |
@@ -1839,7 +1839,7 @@ endpoints:
       query-name: "example.com"
       query-type: "A"
     conditions:
-      - "[BODY] == 93.184.216.34"
+      - "[BODY] == 93.184.215.14"
       - "[DNS_RCODE] == NOERROR"
 ```
 
